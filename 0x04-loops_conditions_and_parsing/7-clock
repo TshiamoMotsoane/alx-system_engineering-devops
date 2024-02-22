@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Using a awhile loop to iterate through hours and minutes
+
+hour=0
+i
+while [ $hour -le 12 ]
+do
+  echo "Hour: $hour"
+  minute=1
+  while [ $minute -le 59 ]
+  do
+    echo "$minute"
+    (( minute++))
+  done
+  ((hour++))
+done
