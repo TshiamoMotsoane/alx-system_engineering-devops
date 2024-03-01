@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 # Dispalys all active IPv4 IPs on the machine.
 
-ipv_addresses=$(ip -4 addr show | grep inet | awk '{print $2}' | cut -d'/' -f1)
-
-if [ -z "$ipv4_adresses" ]; then
-    echo "No active IPv4 addressed found."
-else
-    echo "Active IPv4 addresses:"
-    echo "$ipv4_addresses"
-fi
+ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9*" | cut -b 6-
